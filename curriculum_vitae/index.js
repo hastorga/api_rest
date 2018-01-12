@@ -37,14 +37,14 @@ app.get("/list",(req,res) => {
 
   // API REST 
 
-    app.get('/api/peliculas', (req, res) => {
+    app.get('/peliculas', (req, res) => {
 
       res.send(200, {peliculas: []})
 
     })
-    app.get('/api/peliculas/:_id', (req, res) => {
+    app.get('/peliculas/:_id', (req, res) => {
 
-      let peliculaId = req.params.peliculaId
+      let peliculaId = req.params._id
 
       Pelicula.findById(peliculaId, (err, pelicula) => {
         if(err) return res.status(500).send({message: 'Error al realizar peticion'})
