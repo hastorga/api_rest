@@ -35,6 +35,26 @@ app.get("/list",(req,res) => {
       });
     });
 
+  // API REST 
+
+    app.get('/api/peliculas', (req, res) => {
+
+      res.send(200, {peliculas: []})
+
+    })
+    app.get('/api/pelicula/:peliculaId', (req, res) => {
+
+      let peliculaId = req.params.peliculaId
+
+      Pelicula.findById(peliculaId, (err, pelicula) => {
+        if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+      })
+
+    } )
+
+
+
+  // FINISH API REST 
 
 
 //app.get('/', (req, res) => res.send('Hello World!'));
