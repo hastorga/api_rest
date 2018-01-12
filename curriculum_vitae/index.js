@@ -42,6 +42,7 @@ app.get("/list",(req,res) => {
       Pelicula.find({}, (err, pelicula) => {
 
         if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+
         res.status(200).send({pelicula});
         console.log(pelicula);
       })
@@ -54,7 +55,11 @@ app.get("/list",(req,res) => {
 
       Pelicula.findById(peliculaId, (err, pelicula) => {
 
+        // captura de errores 
         if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+        if(!pelicula) return res.status(400).send({message: 'no existe la pelicula'})
+
+        //impresión por pantalla y consola
         res.status(200).send({pelicula});
         console.log(pelicula);
       })
