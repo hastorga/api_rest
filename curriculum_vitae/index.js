@@ -39,7 +39,13 @@ app.get("/list",(req,res) => {
 
     app.get('/peliculas', (req, res) => {
 
-      res.send(200, {peliculas: []})
+      Pelicula.find({}, (err, pelicula) => {
+
+        if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+        res.status(200).send({pelicula});
+        console.log(pelicula);
+      })
+      
 
     })
     app.get('/peliculas/:_id', (req, res) => {
