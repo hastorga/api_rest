@@ -57,7 +57,7 @@ app.get("/list",(req,res) => {
 
         // captura de errores 
         if(err) return res.status(500).send({message: 'Error al realizar peticion'})
-        if(!pelicula) return res.status(400).send({message: 'no existe la pelicula'})
+        if(!pelicula) return res.status(404).send({message: 'no existe la pelicula'})
 
         //impresión por pantalla y consola
         res.status(200).send({pelicula});
