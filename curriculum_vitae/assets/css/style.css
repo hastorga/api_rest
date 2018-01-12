@@ -285,7 +285,7 @@ ul.list-check li::before {
 
 .section-title::after {
     content: "";
-    background: url(assets/images/section-divider.png) no-repeat 0 0;
+    background: url(../images/section-divider.png) no-repeat 0 0;
     height: 15px;
     width: 113px;
     position: absolute;
@@ -306,7 +306,7 @@ ul.list-check li::before {
 
 
 #home {
-	background: url(images/home2.jpg) no-repeat center center;
+	background: url(../images/home2.jpg) no-repeat center center;
 	-webkit-background-attachment: fixed;
     background-attachment: fixed;
 	background-color: #222;
@@ -582,7 +582,7 @@ SOCIAL ICON
 
 .myphoto{
     position: relative;
-    background: url(assets/images/photo-frame.png) bottom center no-repeat;
+    background: url(../images/photo-frame.png) bottom center no-repeat;
     background-size: contain;
 }
 
@@ -1250,7 +1250,7 @@ Resume Timeline
 
 /* === Facts Section === */
 .facts-section {
-    background: url(assets/images/counter-bg.jpg) no-repeat center center;
+    background: url(../images/counter-bg.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
     color: #fff;  
@@ -1618,7 +1618,7 @@ Icon for all respective meta
 
 #pre-status,
 .preload-placeholder {
-	background-image: url(images/preloader.gif);
+	background-image: url(../images/preloader.gif);
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
