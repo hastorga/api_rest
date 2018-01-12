@@ -47,7 +47,10 @@ app.get("/list",(req,res) => {
       let peliculaId = req.params._id
 
       Pelicula.findById(peliculaId, (err, pelicula) => {
+
         if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+        res.status(200).send({pelicula});
+        console.log(pelicula);
       })
 
     } )
