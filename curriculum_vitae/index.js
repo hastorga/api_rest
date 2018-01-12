@@ -42,7 +42,7 @@ app.get("/list",(req,res) => {
       res.send(200, {peliculas: []})
 
     })
-    app.get('/api/peliculas/:_id, (req, res) => {
+    app.get('/api/peliculas/:_id', (req, res) => {
 
       let peliculaId = req.params.peliculaId
 
