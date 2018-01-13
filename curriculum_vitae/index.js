@@ -66,7 +66,6 @@ app.get("/list",(req,res) => {
 
     } )
 
-
     app.delete('/peliculas/:_id', (req, res) => {
 
       let peliculaId = req.params._id
