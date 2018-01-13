@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/peliculas', { useMongoClient: true });
 
 var peliculaSchemaJSON = {
     titulo: String,
-    age: int
+    age: Number
  
 };
 
