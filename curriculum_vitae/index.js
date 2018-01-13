@@ -95,12 +95,12 @@ app.get("/list",(req,res) => {
       let peliculaId = req.params._id
       let update = req.body
 
-      Pelicula.findByIdAndUpdate(peliculaId,update,(err, peliculaUpdated) => {
+      Pelicula.findByIdAndUpdate(peliculaId,update,(err, peliculaUpdate) => {
 
        
 
           if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(200).send({message: 'La pélicula: '+peliculaUpdated + 'ha sido actualizada a : ' +update  })
+          res.status(200).send({message: 'La pélicula: '+peliculaUpdate + 'ha sido actualizada!' })
 
         })
       })
