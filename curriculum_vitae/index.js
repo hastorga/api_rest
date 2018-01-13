@@ -82,7 +82,7 @@ app.get("/list",(req,res) => {
         pelicula.remove(err => {
 
           if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(500).send({message: 'La pélicula ha sido eliminada! '})
+          res.status(500).send({message: 'La pélicula: '+pelicula + 'ha sido eliminada!' })
 
         })
       })
