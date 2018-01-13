@@ -95,7 +95,7 @@ app.get("/list",(req,res) => {
       let peliculaId = req.params._id
       let update = req.body
 
-      Pelicula.findByIdAndUpdate(peliculaId,update,(err, peliculaUpdate) => {
+      Pelicula.findByIdAndUpdate(peliculaId,update,{new:true},(err, peliculaUpdate) => {
 
        
 
