@@ -114,7 +114,7 @@ app.get("/list",(req,res) => {
         pelicula.titulo = req.body.titulo
         pelicula.age = req.body.age
 
-        pelicula.save((err, nuevaPelicula) => {
+        pelicula.save((err, nuevaPelicula, age) => {
         
         if (err) res.status(500).send({message: 'error al guardar la nueva pelicula'})
         res.status(200).send({message:'Se ha guardado la pelicula: ' +nuevaPelicula +', año de estreno: ' + age})
@@ -147,6 +147,8 @@ var con = mysql.createConnection({
   user: "root",
   password: "barracuda132"
 });
+
+// MYSQL
 
 app.get("/bd",function(req,res){
     con.query('SELECT * from worker', function(err, rows, fields) {
