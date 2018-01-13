@@ -100,7 +100,7 @@ app.get("/list",(req,res) => {
        
 
           if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(200).send({message: 'La pélicula: '+peliculaUpdate + 'ha sido actualizada!' })
+          res.status(200).send({message: 'La pélicula ha sido actualizada a: ' +peliculaUpdate + '!' })
 
         })
       })
