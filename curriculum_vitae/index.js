@@ -67,6 +67,33 @@ app.get("/list",(req,res) => {
     } )
 
 
+    app.delete('/peliculas/:_id', (req, res) => {
+
+      let peliculaId = req.params._id
+
+      Pelicula.findById(peliculaId, (err, pelicula) => {
+
+        // captura de errores 
+        if(err) return res.status(500).send({message: 'Error al borrar la pelicula '})
+       
+
+        //impresión por pantalla y consola
+        
+        console.log(" se ha removido: " + pelicula);
+        pelicula.remove(err => {
+
+          if(err) return res.status(500).send({message: 'Error al borrar la pelicula '})
+          res.status(500).send({message: 'La pélicula ha sido eliminada! '})
+
+        }
+        
+        
+        )
+      })
+
+    } )
+
+
 
   // FINISH API REST 
 
