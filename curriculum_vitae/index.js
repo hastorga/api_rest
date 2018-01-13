@@ -112,11 +112,12 @@ app.get("/list",(req,res) => {
 
         let pelicula = new Pelicula()
         pelicula.titulo = req.body.titulo
+        pelicula.age = req.body.age
 
         pelicula.save((err, nuevaPelicula) => {
         
         if (err) res.status(500).send({message: 'error al guardar la nueva pelicula'})
-        res.status(200).send({message:'Se ha guardado la pelicula: ' +nuevaPelicula})
+        res.status(200).send({message:'Se ha guardado la pelicula: ' +nuevaPelicula +', año de estreno: ' + age})
 
         })
       })
