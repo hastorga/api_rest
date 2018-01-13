@@ -106,6 +106,25 @@ app.get("/list",(req,res) => {
       })
 
 
+
+      app.post('/peliculas/:_id', (req, res) => {
+
+        let peliculaId = req.params._id
+        let titulo = req.body
+  
+        Pelicula.post(peliculaId, titulo, (err, pelicula) => {
+  
+          // captura de errores 
+          if(err) return res.status(500).send({message: 'Error al realizar peticion'})
+  
+          //impresión por pantalla y consola
+          res.status(200).send({message: 'se ha agregado una pelicula'})
+          console.log(pelicula);
+        })
+  
+      } )
+
+
   // FINISH API REST 
 
 
