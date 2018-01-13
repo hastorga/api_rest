@@ -82,13 +82,28 @@ app.get("/list",(req,res) => {
         pelicula.remove(err => {
 
           if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(500).send({message: 'La pélicula: '+pelicula + 'ha sido eliminada!' })
+          res.status(200).send({message: 'La pélicula: '+pelicula + 'ha sido eliminada!' })
 
         })
       })
 
     })
 
+    // UPDATE
+    app.put('/peliculas/:_id', (req, res) => {
+
+      let peliculaId = req.params._id
+      let update = req.body
+
+      Pelicula.findByIdAndUpdate(peliculaId,update,(err, peliculaUpdated) => {
+
+       
+
+          if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
+          res.status(200).send({message: 'La pélicula: '+peliculaUpdated + 'ha sido actualizada!' })
+
+        })
+      })
 
 
   // FINISH API REST 
