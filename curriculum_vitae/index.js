@@ -74,24 +74,20 @@ app.get("/list",(req,res) => {
       Pelicula.findById(peliculaId, (err, pelicula) => {
 
         // captura de errores 
-        if(err) return res.status(500).send({message: 'Error al borrar la pelicula '})
+        if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
        
 
         //impresión por pantalla y consola
-        
-        console.log(" se ha removido: ");
+      
         pelicula.remove(err => {
 
-          if(err) return res.status(500).send({message: 'Error al borrar la pelicula '})
+          if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
           res.status(500).send({message: 'La pélicula ha sido eliminada! '})
 
-        }
-        
-        
-        )
+        })
       })
 
-    } )
+    })
 
 
 
