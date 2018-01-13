@@ -79,7 +79,7 @@ app.get("/list",(req,res) => {
 
         //impresión por pantalla y consola
         
-        console.log(" se ha removido: " + pelicula);
+        console.log(" se ha removido: ");
         pelicula.remove(err => {
 
           if(err) return res.status(500).send({message: 'Error al borrar la pelicula '})
