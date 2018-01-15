@@ -167,4 +167,4 @@ con.connect(function(err) {
 });
 
 //app.use(express.static('curriculum_vitae'));
-app.get('/', (req, res) => res.sendFile(__dirname + 'assets/index.html'));
+app.get('/', (req, res) => res.sendFile(__dirname + '/assets/index.html'));
