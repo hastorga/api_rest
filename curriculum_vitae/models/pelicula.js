@@ -10,5 +10,5 @@ var peliculaSchema = {
  
 };
 
-mongoose.model('Pelicula', peliculaSchema)
+module.exports = mongoose.model('Pelicula', peliculaSchema)
  
