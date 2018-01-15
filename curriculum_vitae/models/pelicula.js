@@ -4,6 +4,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
+
 const peliculaSchema = Schema({
     titulo: String,
     age: Number
@@ -12,4 +14,3 @@ const peliculaSchema = Schema({
 
 
 module.exports = mongoose.model('pelicula', peliculaSchema)
- 

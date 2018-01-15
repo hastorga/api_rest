@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
+const app = require('./app')
 
 const mongoose = require('mongoose');
 // Llamada al schema de las películas: 
@@ -85,3 +85,6 @@ con.connect(function(err) {
 
 app.use(express.static('assets'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+
+
+module.exports = app
