@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// Llamada al schema de las películas: 
+const pelicula = require('./models/pelicula')
+const PeliculaController = require('./controllers/pelicula')
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -13,17 +16,7 @@ app.use(bodyParser.json());
 // realizando conexion con la bd
 mongoose.connect('mongodb://localhost/peliculas', { useMongoClient: true });
 
-var peliculaSchemaJSON = {
-    titulo: String,
-    age: Number
- 
-};
 
-// Creando Schema
-var peliculaSchema = new Schema(peliculaSchemaJSON);
-
-// Creando modelo
-var Pelicula = mongoose.model("peliculas",peliculaSchema);
 
 
 app.get("/list",(req,res) => {
@@ -38,93 +31,18 @@ app.get("/list",(req,res) => {
 
   // API REST 
 
-    app.get('/peliculas', (req, res) => {
+    app.get('/peliculas', PeliculaController.getPeliculas)
 
-      Pelicula.find({}, (err, pelicula) => {
+    app.get('/peliculas/:_id', PeliculaController.getPelicula)
 
-        if(err) return res.status(500).send({message: 'Error al realizar peticion'})
-
-        res.status(200).send({pelicula});
-        console.log(pelicula);
-      })
-      
-
-    })
-    app.get('/peliculas/:_id', (req, res) => {
-
-      let peliculaId = req.params._id
-
-      Pelicula.findById(peliculaId, (err, pelicula) => {
-
-        // captura de errores 
-        if(err) return res.status(500).send({message: 'Error al realizar peticion'})
-        if(!pelicula) return res.status(404).send({message: 'no existe la pelicula'})
-
-        //impresión por pantalla y consola
-        res.status(200).send({pelicula});
-        console.log(pelicula);
-      })
-
-    } )
-
-    app.delete('/peliculas/:_id', (req, res) => {
-
-      let peliculaId = req.params._id
-
-      Pelicula.findById(peliculaId, (err, pelicula) => {
-
-        // captura de errores 
-        if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-       
-
-        //impresión por pantalla y consola
-      
-        pelicula.remove(err => {
-
-          if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(200).send({message: 'La pélicula: '+pelicula + 'ha sido eliminada!' })
-
-        })
-      })
-
-    })
+    app.delete('/peliculas/:_id', PeliculaController.deletePelicula)
 
     // UPDATE
-    app.put('/peliculas/:_id', (req, res) => {
-
-      let peliculaId = req.params._id
-      let update = req.body
-
-      Pelicula.findByIdAndUpdate(peliculaId,update,{new:true},(err, peliculaUpdate) => {
-
-       
-
-          if(err) return res.status(500).send({message: `Error al borrar la pelicula ${err} `})
-          res.status(200).send({message: 'La pélicula ha sido actualizada a: ' +peliculaUpdate + '!' })
-
-        })
-      })
+    app.put('/peliculas/:_id', PeliculaController.updatePelicula)
 
       // POST
-      app.post('/peliculas', (req,res) =>{
-
-        console.log(req.body)
-
-        let pelicula = new Pelicula()
-        pelicula.titulo = req.body.titulo
-        pelicula.age = req.body.age
-
-        pelicula.save((err, nuevaPelicula, age) => {
-        
-        if (err) res.status(500).send({message: 'error al guardar la nueva pelicula'})
-        res.status(200).send({message:'Se ha guardado la pelicula: ' +nuevaPelicula +', año de estreno: ' + age})
-
-        })
-      })
+    app.post('/peliculas', PeliculaController.postPelicula)
       
-
-
-
 
   // FINISH API REST 
 
