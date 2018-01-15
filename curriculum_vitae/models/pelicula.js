@@ -16,4 +16,4 @@ mongoose.model('Pelicula', peliculaSchema)
 var peliculaSchema = new Schema(peliculaSchemaJSON);
 
 // Creando modelo
-var Pelicula = mongoose.model("peliculas",peliculaSchema);
+var Pelicula = mongoose.model("Pelicula",peliculaSchema);
