@@ -6,7 +6,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 // Llamada al schema de las películas: 
-const pelicula = require('./models/pelicula')
+const Pelicula = require('./models/Pelicula')
 const PeliculaController = require('./controllers/pelicula')
 
 
