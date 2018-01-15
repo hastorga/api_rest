@@ -10,5 +10,6 @@ const peliculaSchema = Schema({
  
 })
 
-module.exports = mongoose.model('Pelicula', peliculaSchema)
+
+module.exports = mongoose.model('pelicula', peliculaSchema)
  
