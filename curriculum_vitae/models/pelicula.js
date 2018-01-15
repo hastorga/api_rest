@@ -10,10 +10,10 @@ var peliculaSchemaJSON = {
  
 };
 
-mongoose.model('Pelicula', peliculaSchema)
+mongoose.model('pelicula', peliculaSchema)
 
 // Creando Schema
 var peliculaSchema = new Schema(peliculaSchemaJSON);
 
 // Creando modelo
-var Pelicula = mongoose.model("Pelicula",peliculaSchema);
+var Pelicula = mongoose.model("pelicula",peliculaSchema);
