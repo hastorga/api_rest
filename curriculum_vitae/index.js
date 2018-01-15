@@ -166,5 +166,5 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-//app.use(express.static('curriculum_vitae'));
+//app.use(express.static('assets'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/assets/index.html'));
