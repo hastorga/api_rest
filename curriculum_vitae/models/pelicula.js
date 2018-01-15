@@ -4,11 +4,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-var peliculaSchema = {
+const peliculaSchema = Schema({
     titulo: String,
     age: Number
  
-};
+})
 
 module.exports = mongoose.model('Pelicula', peliculaSchema)
  
