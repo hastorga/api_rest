@@ -174,5 +174,4 @@ server.on('listening', function() {
 //   console.log("Connected!");
 // });
 
-app.use(express.static('assets'));
-app.get('/', (req, res) => res.sendFile(__dirname + '/assets/index.html'));
+app.get('/', (req, res) => res.sendFile(__dirname + 'index.html'));
