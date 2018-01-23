@@ -174,5 +174,4 @@ server.on('listening', function() {
 //   console.log("Connected!");
 // });
 
-app.use(express.static('curriculum_vitae'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
