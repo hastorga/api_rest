@@ -10,6 +10,8 @@ const Schema = mongoose.Schema;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+
 // realizando conexion con la bd
 mongoose.connect('mongodb://localhost/peliculas', { useMongoClient: true });
 
@@ -174,4 +176,4 @@ server.on('listening', function() {
 //   console.log("Connected!");
 // });
 
-app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+
